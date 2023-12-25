@@ -1,0 +1,42 @@
+Big O Notation
+O(1)  Constant Complexity
+{
+   Statement；
+}
+
+O(N)  Linear Complexity
+for ( i = 0; i < N; i++ )
+  statement;
+
+O(N^2) N square Complexity  or  quadratic Complexity
+for ( i = 0; i < N; i++ ) {
+  for ( j = 0; j < N; j++ )
+    statement;
+}
+
+O(log(N)) Logarithmic Complexity
+ 
+binary search
+while ( low <= high ) {
+  mid = ( low + high ) / 2;
+  if ( target < list[mid] )
+    high = mid - 1;
+  else if ( target > list[mid] )
+    low = mid + 1;
+  else break;
+}
+
+O(Nlog(N))  N Logarithmic Complexity
+merge sort, heap sort or quicksort (average as Nlog(N)
+void quicksort ( int list[], int left, int right )
+{
+  int pivot = partition ( list, left, right );
+  quicksort ( list, left, pivot - 1 );
+  quicksort ( list, pivot + 1, right );
+}
+
+exponential 
+O(2^n)
+
+Factorial
+O(n!)
