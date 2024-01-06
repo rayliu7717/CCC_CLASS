@@ -32,6 +32,7 @@ public class CCC_DS_QUEUE {
         Deque<Integer> deque = new ArrayDeque<>();
         deque.addFirst(1);
         deque.addLast(2);
+		System.out.println("First: " + deque.peekFirst() + ", Last: " + deque.peekLast());
         int first = deque.removeFirst();
         int last = deque.removeLast();
         System.out.println("First: " + first + ", Last: " + last);
