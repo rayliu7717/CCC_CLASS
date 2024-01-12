@@ -1,10 +1,8 @@
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> set = new HashSet<>(wordList);
-
         Queue<String> queue = new LinkedList<>();
         queue.offer(beginWord);
-
         int level = 1;
         while(!queue.isEmpty()){
             int size = queue.size();
@@ -23,7 +21,6 @@ class Solution {
                     }
                 }
             }
-
             level++;
         }
         return 0;

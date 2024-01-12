@@ -10,14 +10,12 @@ class Solution {
         int steps = 0;
         while (!q1.isEmpty() && !q2.isEmpty()) {
             steps++;
-
             if (q1.size() > q2.size()) {
                 Set<String> tmp = q1;
                 q1 = q2;
                 q2 = tmp;
             }
             Set<String> q = new HashSet<>();
-
             for (String w : q1) {
                 char[] chs = w.toCharArray();
                 for (int i = 0; i < l; ++i) {
@@ -33,7 +31,6 @@ class Solution {
                     chs[i] = ch;
                 }
             }
-
             q1 = q;
         }
         return 0;
