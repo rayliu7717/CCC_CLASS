@@ -1,40 +1,30 @@
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Set<String> dict = new HashSet<>(wordList);
-        if (!dict.contains(endWord)) return 0;
-        Set<String> q1 = new HashSet<>();
-        Set<String> q2 = new HashSet<>();
-        q1.add(beginWord);
-        q2.add(endWord);
-        int l = beginWord.length();
-        int steps = 0;
-        while (!q1.isEmpty() && !q2.isEmpty()) {
-            steps++;
+        Set<String> set = new HashSet<>(wordList);
 
-            if (q1.size() > q2.size()) {
-                Set<String> tmp = q1;
-                q1 = q2;
-                q2 = tmp;
-            }
-            Set<String> q = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
 
-            for (String w : q1) {
-                char[] chs = w.toCharArray();
-                for (int i = 0; i < l; ++i) {
-                    char ch = chs[i];
-                    for (char c = 'a'; c <= 'z'; ++c) {
-                        chs[i] = c;
-                        String t = new String(chs);
-                        if (q2.contains(t)) return steps + 1;
-                        if (!dict.contains(t)) continue;
-                        dict.remove(t);
-                        q.add(t);
+        int level = 1;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                String curr = queue.poll();
+                for(int j = 0; j < curr.length(); j++){
+                    char[] arr = curr.toCharArray();
+                    for(char x = 'a'; x <= 'z'; x++){
+                        arr[j] = x;
+                        String temp = new String(arr);
+                        if(set.contains(temp)){
+                            if(temp.equals(endWord)) return level + 1;
+                            queue.offer(temp);
+                            set.remove(temp);
+                        }
                     }
-                    chs[i] = ch;
                 }
             }
 
-            q1 = q;
+            level++;
         }
         return 0;
     }
