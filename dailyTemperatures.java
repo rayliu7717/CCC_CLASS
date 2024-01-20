@@ -6,7 +6,6 @@
         int[] res = new int[n];
         for (int i=0;i<n;i++) {
             while (!q.isEmpty() && T[i]>T[q.peek()]) {
-
                 int pre = q.pop();
                 res[pre] = i - pre;
             }

@@ -4,6 +4,7 @@ import java.util.*;
 // vertex. BFS(int s) traverses vertices reachable from s.
 // This class represents a directed graph using adjacency
 // list representation
+// It starts at the root of the graph and visits all nodes at the current depth level before moving on to the nodes at the next depth level.
 class CCC_GRAPH_BFS {
         private int V;  // No. of vertices
         private LinkedList<Integer> adj[]; // Adjacency Lists 
